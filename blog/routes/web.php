@@ -14,3 +14,28 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cats',[
+        'as'=>'cats.index',
+        'uses'=>'CatController@index'
+    ]);
+Route::get('/cats/create',[
+    'as'=>'cats.create',
+    'uses'=>'CatController@create'
+]);
+Route::post('/cats/',[
+    'as'=>'cats.store',
+    'uses'=>'CatController@store'
+]);
+Route::get('/cats/{cat}/edit',[
+    'as'=>'cats.edit',
+    'uses'=>'CatController@edit'
+]);
+Route::put('/cats/{cat}',[
+    'as'=>'cats.update',
+    'uses'=>'CatController@update'
+]);
+Route::delete('/cats/{cat}',[
+    'as'=>'cats.delete',
+    'uses'=>'CatController@destroy'
+]);
+//Route::resource('cats','CatController');
