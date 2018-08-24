@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <h1>List Cat</h1>
-    <h2><a href="/cats/create">Create cat</a></h2>
+    <h1>List Cat By ID {{$breed_id}}</h1>
     <table style="width:100%">
         <tr>
             <th>Name</th>
@@ -9,7 +8,7 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        @foreach($cat as $item)
+        @foreach($cats as $item)
             <tr>
                 <td>{{$item->name}}</td>
                 <td>{{$item->dob}}</td>

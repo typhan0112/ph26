@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Breed;
+use App\Cat;
 use Illuminate\Http\Request;
 
 class BreedController extends Controller
@@ -14,7 +15,8 @@ class BreedController extends Controller
      */
     public function index()
     {
-        //
+        $breeds= Breed::all();
+        return view('breeds.index',compact('breeds'));
     }
 
     /**
@@ -81,5 +83,11 @@ class BreedController extends Controller
     public function destroy(Breed $breed)
     {
         //
+    }
+    public function showlistCatsByID($id)
+    {
+        $breed_id=$id;
+        $cats= Cat::where('breed_id',$id)->get();
+        return view('breeds.listCat',compact('cats','breed_id'));
     }
 }

@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/cats',[
         'as'=>'cats.index',
         'uses'=>'CatController@index'
-    ]);
+    ])->middleware(['auth','checklogin']);
 Route::get('/cats/create',[
     'as'=>'cats.create',
     'uses'=>'CatController@create'
@@ -38,4 +38,12 @@ Route::delete('/cats/{cat}',[
     'as'=>'cats.delete',
     'uses'=>'CatController@destroy'
 ]);
-//Route::resource('cats','CatController');
+Route::get('/breeds/{id}/cats',[
+   'as'=>'show.list.cats.by.breed',
+   'uses'=>'BreedController@showlistCatsByID'
+]);
+Route::resource('breeds','BreedController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

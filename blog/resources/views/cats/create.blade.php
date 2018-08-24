@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
     <div class="form-group">
         <form action="{{route('cats.store')}}" method="POST">
